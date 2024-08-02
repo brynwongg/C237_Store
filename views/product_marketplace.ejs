@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bryan's Clothing Marketplace</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 2px;
+        }
+
+        a:hover {
+            color: #ccc;
+            border-bottom: 2px solid #ccc;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 20px 0;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bryan's Clothing Marketplace</h1>
+        <a href="/add-product">Add Product</a>
+        <a href="/contact">Contact</a>
+        <a href="/">Go back to Homepage</a>
+        <ul>
+            <% products.forEach(function(product){ %>
+                <li>
+                    <h2><%= product.name %></h2>
+                    <p>Price: $<%= product.price %></p>
+                    <p><%= product.description %></p>
+                    <img src="<%= product.image_url %>" alt="<%= product.name %>" width="200px">
+                    <a href="/edit-product/<%= product.id %>">Edit</a>
+                    <a href="/delete-product/<%= product.id %>">Delete</a>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>
